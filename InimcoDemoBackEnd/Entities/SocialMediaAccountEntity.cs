@@ -23,6 +23,9 @@ namespace InimcoDemoBackEnd.Models
 
         //* Constructors
         //required for inheratence
+        /// <summary>
+        /// default constructor
+        /// </summary>
         protected SocialMediaAccountEntity() { }
 
 

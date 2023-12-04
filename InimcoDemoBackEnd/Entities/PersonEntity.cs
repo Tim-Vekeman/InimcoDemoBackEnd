@@ -16,6 +16,9 @@ namespace InimcoDemoBackEnd.Entities
 
         //*constructors
         //required for inheratence
+        /// <summary>
+        /// default constructor
+        /// </summary>
         protected PersonEntity() { }
 
         /// <summary>

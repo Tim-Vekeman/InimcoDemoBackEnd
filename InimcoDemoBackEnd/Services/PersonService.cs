@@ -17,16 +17,20 @@ namespace InimcoDemoBackEnd.Services
 
         public async Task<PersonDto> InsertNewPerson(PersonDto personToInsert)
         {
-            // Create a new User entity
             var person = new PersonEntity(personToInsert);
 
-            // Add the user to the database
             personDatabaseContext.Persons.Add(person);
-
-            // Save changes to the database
             await personDatabaseContext.SaveChangesAsync();
 
             return new PersonDto(person);
+        }
+
+        public async Task<PersonExtendedDto> GetExtendedPersonById(uint id)
+        {
+            var personEntity = await personDatabaseContext.Persons
+                .Include(x => x.SocialMediaAccounts)
+                .FirstAsync(x => x.Id == id);
+            return new PersonExtendedDto(new PersonDto(personEntity));
         }
     }
 }

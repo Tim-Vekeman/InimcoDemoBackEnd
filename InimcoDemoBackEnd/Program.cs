@@ -22,9 +22,22 @@ namespace InimcoDemoBackEnd
             // Add services to the container.
             builder.Services.AddLogging();
             builder.Services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    //TODO: Tighten security
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             //database
             builder.Services.AddDbContext<PersonDatabaseContext>(options =>
@@ -43,6 +56,7 @@ namespace InimcoDemoBackEnd
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors();
             app.UseAuthorization();
 
 

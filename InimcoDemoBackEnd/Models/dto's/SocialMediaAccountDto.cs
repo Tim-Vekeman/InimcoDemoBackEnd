@@ -8,6 +8,9 @@
         //* Constructors
         //required for inheratence
         //public is required for recieving data in the controller
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public SocialMediaAccountDto() { }
 
         /// <summary>
