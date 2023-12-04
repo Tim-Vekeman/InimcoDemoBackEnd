@@ -1,6 +1,6 @@
 ﻿namespace InimcoDemoBackEnd.Models
 {
-    public class SocialMediaAccount
+    public class SocialMediaAccountDto
     {
         public string Type { get; set; }
         public string Address { get; set; }

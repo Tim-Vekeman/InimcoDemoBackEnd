@@ -1,6 +1,6 @@
 ﻿namespace InimcoDemoBackEnd.Services
 {
-    public interface PersonInterface
+    public interface IPersonService
     {
     }
 }
