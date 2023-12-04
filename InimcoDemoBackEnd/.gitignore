@@ -343,3 +343,6 @@ ASALocalRun/
 
 #vscode
 .vscode/
+
+#enviorement
+appsettings*.json
