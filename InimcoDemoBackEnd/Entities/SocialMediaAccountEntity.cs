@@ -19,5 +19,21 @@ namespace InimcoDemoBackEnd.Models
 
         // Navigation properies
         public virtual PersonEntity PersonEntity { get; set; } = null!;
+
+
+        //* Constructors
+        //required for inheratence
+        protected SocialMediaAccountEntity() { }
+
+
+        /// <summary>
+        /// Turns the SocialMediaAccountDto into an entity (not overlapping fields will be "null")
+        /// </summary>
+        /// <param name="socialMediaAccountDto">The socialMediaAccountDto to convert</param>
+        internal SocialMediaAccountEntity(SocialMediaAccountDto socialMediaAccountDto)
+        {
+            this.Type = socialMediaAccountDto.Type;
+            this.Address = socialMediaAccountDto.Address;
+        }
     }
 }
