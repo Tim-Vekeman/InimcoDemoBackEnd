@@ -9,9 +9,12 @@ namespace InimcoDemoBackEndTests
     [TestFixture]
     public class PersonServiceTest
     {
+        #region Fields
         private PersonDatabaseContext _dbContext;
         private PersonService _personService;
+        #endregion
 
+        #region Setup And Teardown
         [SetUp]
         public void Setup()
         {
@@ -30,7 +33,9 @@ namespace InimcoDemoBackEndTests
             // Dispose of the database context after each test
             _dbContext.Dispose();
         }
+        #endregion
 
+        #region Tests
         [Test]
         public async Task InsertNewPerson_ShouldInsertPerson()
         {
@@ -78,22 +83,16 @@ namespace InimcoDemoBackEndTests
             #endregion
 
             #region Assertions
-            //* result 1
-            Assert.IsNotNull(result1);
-            Assert.AreEqual(result1.Firstname, personDto1.Firstname);
-            Assert.AreEqual(result1.Lastname, personDto1.Lastname);
-            Assert.AreEqual(result1.SocialSkills, personDto1.SocialSkills);
+            AssertIfPersonDto1EqualToPersonDto2(result1, personDto1);
+            AssertIfPersonDto1EqualToPersonDto2(result2, personDto2);
 
+
+            //* result 1
             // check if the person was added to the database
             var insertedPerson1 = await _dbContext.Persons.FirstOrDefaultAsync(p => p.Id == result1.Id);
             Assert.IsNotNull(insertedPerson1);
 
             //* result 2
-            Assert.IsNotNull(result2);
-            Assert.AreEqual(result2.Firstname, personDto2.Firstname);
-            Assert.AreEqual(result2.Lastname, personDto2.Lastname);
-            Assert.AreEqual(result2.SocialSkills, personDto2.SocialSkills);
-
             // check if the person was added to the database
             var insertedPerson2 = await _dbContext.Persons.FirstOrDefaultAsync(p => p.Id == result2.Id);
             Assert.IsNotNull(insertedPerson2);
@@ -184,5 +183,17 @@ namespace InimcoDemoBackEndTests
             Assert.AreEqual(result.Constenants, personExtendedDto.Constenants);
             #endregion
         }
+        #endregion
+
+        #region Private functions
+        private void AssertIfPersonDto1EqualToPersonDto2(PersonDto person1, PersonDto person2)
+        {
+            Assert.IsNotNull(person1);
+            Assert.IsNotNull(person2);
+            Assert.AreEqual(person1.Firstname, person2.Firstname);
+            Assert.AreEqual(person1.Lastname, person2.Lastname);
+            Assert.AreEqual(person1.SocialSkills, person2.SocialSkills);
+        }
+        #endregion
     }
 }
