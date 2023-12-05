@@ -17,10 +17,11 @@ namespace InimcoDemoBackEnd
                 .AddEnvironmentVariables()
                 .Build();
 
-            // dependency injection
+            #region dependency injection
             builder.Services.AddScoped<IPersonService, PersonService>();
+            #endregion
 
-            // Add services to the container.
+            #region Add services to the container.
             builder.Services.AddLogging(logging =>
             {
                 logging.AddConsole(); // Add console logging
@@ -48,7 +49,9 @@ namespace InimcoDemoBackEnd
             {
                 options.UseNpgsql(configuration.GetConnectionString("DatabaseConnectionString"));
             });
+            #endregion
 
+            #region App Building
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -63,10 +66,10 @@ namespace InimcoDemoBackEnd
             app.UseCors();
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
+            #endregion
         }
     }
 }

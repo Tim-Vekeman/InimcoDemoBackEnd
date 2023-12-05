@@ -6,6 +6,7 @@ namespace InimcoDemoBackEnd.Models
 {
     public class SocialMediaAccountEntity
     {
+        #region Fields
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
@@ -19,9 +20,9 @@ namespace InimcoDemoBackEnd.Models
 
         // Navigation properies
         public virtual PersonEntity PersonEntity { get; set; } = null!;
+        #endregion
 
-
-        //* Constructors
+        #region Constructors
         //required for inheratence
         /// <summary>
         /// default constructor
@@ -38,5 +39,6 @@ namespace InimcoDemoBackEnd.Models
             this.Type = socialMediaAccountDto.Type;
             this.Address = socialMediaAccountDto.Address;
         }
+        #endregion
     }
 }

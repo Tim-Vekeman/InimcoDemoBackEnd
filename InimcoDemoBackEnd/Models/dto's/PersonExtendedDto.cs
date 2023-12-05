@@ -5,13 +5,15 @@ namespace InimcoDemoBackEnd.Models
 {
     public class PersonExtendedDto : PersonDto
     {
+        #region Fields
         public uint Vowels { get; set; }
         public uint Constenants { get; set; } //? should be Consonant??
         public string Fullname { get; set; }
         public string ReversedFullname { get; set; }
         public string PersonAsJson { get; set; }
+        #endregion
 
-        //* constructor
+        #region Constructor
         //required for inheratence
         /// <summary>
         /// default constructor
@@ -35,5 +37,6 @@ namespace InimcoDemoBackEnd.Models
             this.ReversedFullname = new string(this.Fullname.Reverse().ToArray());
             this.PersonAsJson = JsonSerializer.Serialize(personDto);
         }
+        #endregion
     }
 }

@@ -8,15 +8,20 @@ namespace InimcoDemoBackEnd.Controllers
     [Route("[controller]")]
     public class PersonsController : ControllerBase
     {
+        #region Fields
         private readonly ILogger<PersonsController> _logger;
         private readonly IPersonService _personService;
+        #endregion
 
+        #region Contstructors
         public PersonsController(ILogger<PersonsController> logger, IPersonService personService)
         {
             _logger = logger;
             _personService = personService;
         }
+        #endregion
 
+        #region Api-endpoints
         [HttpPost(Name = "AddPerson")]
         public async Task<ActionResult> AddPerson([FromBody] PersonDto person)
         {
@@ -35,9 +40,10 @@ namespace InimcoDemoBackEnd.Controllers
                 return StatusCode(500);
             }
         }
+        #endregion
 
-        //* Extended person calls
-        //TODO: change to uint (need to build a custom route constraint)
+        #region Extended person calls
+
         [HttpGet("extended/{id}", Name = "GetExtendedPerson")]
         public async Task<ActionResult> GetExtendedPerson(uint id)
         {
@@ -55,5 +61,6 @@ namespace InimcoDemoBackEnd.Controllers
                 return StatusCode(500);
             }
         }
+        #endregion
     }
 }

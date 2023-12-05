@@ -8,13 +8,18 @@ namespace InimcoDemoBackEnd.Services
 {
     public class PersonService : IPersonService
     {
+        #region Fields
         private readonly PersonDatabaseContext personDatabaseContext;
+        #endregion
 
+        #region Constructor
         public PersonService(PersonDatabaseContext personDatabaseContext) 
         {
             this.personDatabaseContext = personDatabaseContext;
         }
+        #endregion
 
+        #region Public Functions
         public async Task<PersonDto> InsertNewPerson(PersonDto personToInsert)
         {
             var person = new PersonEntity(personToInsert);
@@ -32,5 +37,6 @@ namespace InimcoDemoBackEnd.Services
                 .FirstAsync(x => x.Id == id);
             return new PersonExtendedDto(new PersonDto(personEntity));
         }
+        #endregion
     }
 }

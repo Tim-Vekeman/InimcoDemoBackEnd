@@ -4,13 +4,15 @@ namespace InimcoDemoBackEnd.Models
 {
     public class PersonDto
     {
+        #region Fields
         public uint? Id { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string[] SocialSkills { get; set; }
         public SocialMediaAccountDto[] SocialMediaAccounts { get; set; }
+        #endregion
 
-        //*constructors
+        #region Constructors
         //required for inheratence
         //public is required for recieving data in the controller
         /// <summary>
@@ -43,9 +45,9 @@ namespace InimcoDemoBackEnd.Models
             this.SocialSkills = person.SocialSkills;
             this.SocialMediaAccounts = person.SocialMediaAccounts.Select(x => new SocialMediaAccountDto(x)).ToArray();
         }
+        #endregion
 
-        //* Assist functions
-
+        #region Assist functions
         /// <summary>
         /// Will check if all fields of the PersonDto are filled in correctly
         /// </summary>
@@ -63,5 +65,6 @@ namespace InimcoDemoBackEnd.Models
             if(SocialMediaAccounts.Any(x => !x.IsValid())) return false;
             return true;
         }
+        #endregion
     }
 }

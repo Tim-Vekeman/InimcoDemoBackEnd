@@ -6,6 +6,7 @@ namespace InimcoDemoBackEnd.Entities
 {
     public class PersonEntity
     {
+        #region Fields
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint Id { get; set; }
@@ -13,8 +14,9 @@ namespace InimcoDemoBackEnd.Entities
         public string Lastname { get; set; }
         public string[] SocialSkills { get; set; }
         public ICollection<SocialMediaAccountEntity> SocialMediaAccounts { get; set; }
+        #endregion
 
-        //*constructors
+        #region Constructors
         //required for inheratence
         /// <summary>
         /// default constructor
@@ -34,5 +36,6 @@ namespace InimcoDemoBackEnd.Entities
             this.SocialSkills = person.SocialSkills;
             this.SocialMediaAccounts = person.SocialMediaAccounts.Select(x => new SocialMediaAccountEntity(x)).ToArray();
         }
+        #endregion
     }
 }

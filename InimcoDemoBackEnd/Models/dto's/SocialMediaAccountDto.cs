@@ -2,10 +2,12 @@
 {
     public class SocialMediaAccountDto
     {
+        #region Fields
         public string Type { get; set; }
         public string Address { get; set; }
+        #endregion
 
-        //* Constructors
+        #region Constructors
         //required for inheratence
         //public is required for recieving data in the controller
         /// <summary>
@@ -22,9 +24,9 @@
             this.Type = socialMediaAccountEntity.Type;
             this.Address = socialMediaAccountEntity.Address;
         }
+        #endregion
 
-        //* Assist functions
-
+        #region Assist functions
         /// <summary>
         /// Checks if all fields from the SocialMediaAccountDto are filled in correctly
         /// </summary>
@@ -35,5 +37,6 @@
             if (String.IsNullOrWhiteSpace(this.Address)) return false;
             return true;
         }
+        #endregion
     }
 }
