@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InimcoDemoBackEnd", "InimcoDemoBackEnd\InimcoDemoBackEnd.csproj", "{093A4CA3-2045-40D2-A79B-640D68BC6E56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InimcoDemoBackEnd", "InimcoDemoBackEnd\InimcoDemoBackEnd.csproj", "{093A4CA3-2045-40D2-A79B-640D68BC6E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InimcoDemoBackEndTests", "InimcoDemoBackEndTests\InimcoDemoBackEndTests.csproj", "{2C5285A6-62B1-4F05-9EEB-2EFB1EEC8B08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{093A4CA3-2045-40D2-A79B-640D68BC6E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{093A4CA3-2045-40D2-A79B-640D68BC6E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{093A4CA3-2045-40D2-A79B-640D68BC6E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C5285A6-62B1-4F05-9EEB-2EFB1EEC8B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5285A6-62B1-4F05-9EEB-2EFB1EEC8B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5285A6-62B1-4F05-9EEB-2EFB1EEC8B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5285A6-62B1-4F05-9EEB-2EFB1EEC8B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
