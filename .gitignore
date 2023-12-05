@@ -1,3 +1,5 @@
 /.vs
 /InimcoDemoBackEnd/appsettings.Development.json
 /InimcoDemoBackEnd/appsettings.json
+/InimcoDemoBackEndTests/bin/Debug/net8.0
+/InimcoDemoBackEndTests/obj
