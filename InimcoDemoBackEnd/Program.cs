@@ -2,6 +2,7 @@
 using InimcoDemoBackEnd.DatabaseContext;
 using InimcoDemoBackEnd.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace InimcoDemoBackEnd
 {
@@ -20,7 +21,10 @@ namespace InimcoDemoBackEnd
             builder.Services.AddScoped<IPersonService, PersonService>();
 
             // Add services to the container.
-            builder.Services.AddLogging();
+            builder.Services.AddLogging(logging =>
+            {
+                logging.AddConsole(); // Add console logging
+            });
             builder.Services.AddControllers();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

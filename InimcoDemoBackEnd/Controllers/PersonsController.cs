@@ -20,15 +20,18 @@ namespace InimcoDemoBackEnd.Controllers
         [HttpPost(Name = "AddPerson")]
         public async Task<ActionResult> AddPerson([FromBody] PersonDto person)
         {
+            _logger.LogInformation(String.Concat("started adding a person: ", person.Firstname, " ", person.Lastname));
             if (!ModelState.IsValid) return BadRequest(ModelState);
             if (!person.IsValid(false)) return BadRequest("Data isn't valid");
             try
             {
                 var insertedPerson = await _personService.InsertNewPerson(person);
+                _logger.LogInformation(String.Concat("Successfully added a person: ", insertedPerson.Firstname, " ", insertedPerson.Lastname, ". With id: ", insertedPerson.Id));
                 return Ok(insertedPerson);
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(String.Concat("Error while adding person: ", person.Firstname, " ", person.Lastname, ". Error:\n", ex.Message));
                 return StatusCode(500);
             }
         }
@@ -38,14 +41,17 @@ namespace InimcoDemoBackEnd.Controllers
         [HttpGet("extended/{id}", Name = "GetExtendedPerson")]
         public async Task<ActionResult> GetExtendedPerson(uint id)
         {
+            _logger.LogInformation("started get extended person with id: " + id);
             if (!ModelState.IsValid) return BadRequest(ModelState);
             try
             {
                 var requestedPerson = await _personService.GetExtendedPersonById(id);
+                _logger.LogInformation("Successfully retuned extended person with id: " + id);
                 return Ok(requestedPerson);
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(String.Concat("Error while getting extended person with id: ", id, ". Error:\n", ex.Message));
                 return StatusCode(500);
             }
         }
