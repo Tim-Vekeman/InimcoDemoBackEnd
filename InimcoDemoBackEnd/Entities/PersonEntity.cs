@@ -19,7 +19,7 @@ namespace InimcoDemoBackEnd.Entities
         /// <summary>
         /// default constructor
         /// </summary>
-        protected PersonEntity() { }
+        public PersonEntity() { }
 
         /// <summary>
         /// Will transform a personDto to a PersonEntity

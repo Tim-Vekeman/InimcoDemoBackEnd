@@ -16,7 +16,7 @@ namespace InimcoDemoBackEnd.Models
         /// <summary>
         /// default constructor
         /// </summary>
-        protected PersonExtendedDto() { }
+        public PersonExtendedDto() { }
 
         /// <summary>
         /// Will convert a PersonDto into a ExtendedPersonDto

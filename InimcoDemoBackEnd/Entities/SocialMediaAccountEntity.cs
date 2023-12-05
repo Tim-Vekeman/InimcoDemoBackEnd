@@ -26,7 +26,7 @@ namespace InimcoDemoBackEnd.Models
         /// <summary>
         /// default constructor
         /// </summary>
-        protected SocialMediaAccountEntity() { }
+        public SocialMediaAccountEntity() { }
 
 
         /// <summary>
