@@ -9,7 +9,7 @@ namespace InimcoDemoBackEnd.Models
         public uint Constenants { get; set; } //? should be Consonant??
         public string Fullname { get; set; }
         public string ReversedFullname { get; set; }
-        public string personAsJson { get; set; }
+        public string PersonAsJson { get; set; }
 
         //* constructor
         //required for inheratence
@@ -33,7 +33,7 @@ namespace InimcoDemoBackEnd.Models
             this.Vowels = (uint) this.Fullname.Count(x => VOWELS.Contains(Char.ToLower(x)));
             this.Constenants = (uint) this.Fullname.Count(x => CONSTANTS.Contains(Char.ToLower(x)));
             this.ReversedFullname = new string(this.Fullname.Reverse().ToArray());
-            this.personAsJson = JsonSerializer.Serialize(personDto);
+            this.PersonAsJson = JsonSerializer.Serialize(personDto);
         }
     }
 }
